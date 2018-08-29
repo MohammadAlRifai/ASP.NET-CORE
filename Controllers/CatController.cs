@@ -20,7 +20,7 @@ namespace firstProjectWebApi.Controllers
 		 public IEnumerable<Cat> GetAll()
 		 {
             //your code is here
-            cats.Add(new Cat() { Name = "loop" });
+            //cats.Add(new Cat());
             return cats;
 		 }
 
@@ -35,20 +35,31 @@ namespace firstProjectWebApi.Controllers
 		}
 
         // PUT api/cat/name
-		[HttpPut("{name}")]
-		public void Put(string name, [FromBody] Cat cat)
-		{
-			//your code is here
-		}
-
+        [HttpPut("{name}")]
+        public Cat Put(string name, [FromBody] Cat cat)
+        {
+            //your code is here
+            for (int i = 0; i < cats.Count; i++)
+            {
+                if (cats[i].Name == name)
+                    cats[i] = cat;
+            };
+            return cat;
+        }
         // DELETE api/cat/1
 
-		[HttpDelete("{name}")]
-		public void Delete(string name)
-		{
-			//your code is here
-		}
-
-
-	}
+        [HttpDelete("{name}")]
+        public void Delete(string name)
+        {
+            //your code is here
+            for (int i = 0; i < cats.Count; i++)
+            {
+                if (cats[i].Name == name)
+                    cats.Remove(cats[i]);
+            };
+        }
+    }
 }
+
+
+	
