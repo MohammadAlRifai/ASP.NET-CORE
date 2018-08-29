@@ -16,21 +16,22 @@ namespace firstProjectWebApi.Controllers
 
 		// GET api/cat/
 		//your code is here uncomment this method and write the required code to handle get request
-		// [HttpGet]
-		// public IEnumerable<Cat> GetAll()
-		// {
-		// 	//your code is here
-			
-		// }
+		 [HttpGet]
+		 public IEnumerable<Cat> GetAll()
+		 {
+            //your code is here
+            cats.Add(new Cat() { Name = "loop" });
+            return cats;
+		 }
 
         
         // POST api/cat
 		[HttpPost]
 		public Cat Insert([FromBody]Cat cat)
 		{
-			//your code is here
-			
-			return cat;
+            //your code is here
+            cats.Add(cat);
+            return cat;
 		}
 
         // PUT api/cat/name

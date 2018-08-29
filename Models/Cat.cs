@@ -4,7 +4,6 @@ namespace firstProjectWebApi.Models
     {
         //your code is here
         public string Name;
-        public int Age;
         
     }
 }
